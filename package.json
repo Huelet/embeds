@@ -19,6 +19,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@fdn-ui/icons-react": "^0.0.11",
+    "@fontsource/plus-jakarta-sans": "^4.5.8",
     "@huelet/foundation-ui": "^0.2.0",
     "gatsby": "^4.19.2",
     "gatsby-plugin-emotion": "^7.19.0",

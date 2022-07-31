@@ -1,0 +1,10 @@
+html,
+body,
+*,
+*:before,
+*:after {
+    font-family: "Plus Jakarta Sans";
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}

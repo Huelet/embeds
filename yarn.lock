@@ -1220,6 +1220,11 @@
   dependencies:
     react "^17.0.2"
 
+"@fontsource/plus-jakarta-sans@^4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/plus-jakarta-sans/-/plus-jakarta-sans-4.5.8.tgz#8ad38f95953a8a8b23a68c4532a856779f1c8e0f"
+  integrity sha512-rkNIWw6q9M3cVpMxIN85IMG/MxePHl7dTSEvr6xngjvvc8FPudZpJF8R7OsFAGhxdOKXZnO3kFnqXni4Jd5Nog==
+
 "@gatsbyjs/parcel-namer-relative-to-cwd@1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/parcel-namer-relative-to-cwd/-/parcel-namer-relative-to-cwd-1.4.0.tgz#e1c225952922b03088a37649d06cf51b86ba4616"
