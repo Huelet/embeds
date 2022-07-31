@@ -18,6 +18,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@fdn-ui/icons-react": "^0.0.11",
+    "@huelet/foundation-ui": "^0.2.0",
     "gatsby": "^4.19.2",
     "gatsby-plugin-emotion": "^7.19.0",
     "gatsby-plugin-image": "^2.19.0",
@@ -27,6 +29,7 @@
     "gatsby-plugin-sitemap": "^5.19.0",
     "gatsby-source-filesystem": "^4.19.0",
     "gatsby-transformer-sharp": "^4.19.0",
+    "griffith": "^1.26.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0"
