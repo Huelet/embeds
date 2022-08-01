@@ -3,13 +3,13 @@ body,
 *,
 *:before,
 *:after {
-    font-family: "Plus Jakarta Sans";
+    font-family: "Plus Jakarta Sans", sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 pre, code {
-    font-family: "JetBrains Mono";
+    font-family: "JetBrains Mono", monospace;
     font-size: 1.2rem;
 }
