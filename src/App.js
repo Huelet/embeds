@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/react */
 import * as React from "react";
 import { css, jsx } from "@emotion/react";
 import { Button, Card } from "@huelet/foundation-ui";
@@ -13,7 +13,7 @@ const IndexPage = () => {
     const url = new URL(
       typeof window === "undefined"
         ? "https://example.com/etc/etc"
-        : location.href
+        : window.location.href
     );
     setEmbed(Boolean(url.searchParams.get("embed")));
   }, [videoUrl]);

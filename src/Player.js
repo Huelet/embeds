@@ -8,9 +8,9 @@ const Player = () => {
     const url = new URL(
       typeof window === "undefined"
         ? "https://example.com/etc/etc"
-        : location.href
+        : window.location.href
     );
-    setVuid(url.searchParams.get("vuid") as string);
+    setVuid(url.searchParams.get("vuid"));
   });
 
   React.useEffect(() => {
