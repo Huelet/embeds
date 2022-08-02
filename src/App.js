@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import * as React from "react";
-import { css, jsx } from "@emotion/react";
 import { Button, Card } from "@huelet/foundation-ui";
 import Player from "./Player";
 import { Copy } from "@fdn-ui/icons-react";
