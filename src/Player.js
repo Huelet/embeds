@@ -15,8 +15,6 @@ const Player = () => {
 
   React.useEffect(() => {
     const getVideoData = async () => {
-      console.log(`https://api.huelet.net/videos/lookup/${vuid}`);
-
       const resp = await fetch(`https://api.huelet.net/videos/lookup/${vuid}`);
       const data = await resp.json();
       data.data.url_webm
