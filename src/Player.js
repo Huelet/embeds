@@ -11,7 +11,7 @@ const Player = () => {
         : window.location.href
     );
     setVuid(url.searchParams.get("vuid"));
-  });
+  }, []);
 
   React.useEffect(() => {
     const getVideoData = async () => {
