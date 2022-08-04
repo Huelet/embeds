@@ -25,7 +25,7 @@ const IndexPage = () => {
     const code = `
       <iframe
         src="https://publish.huelet.net/?embed=true&vuid=${
-          new URL("https://huelet.net/w/15xqiownj1672fjysg/").pathname.split(
+          new URL(videoUrl).pathname.split(
             "/"
           )[2]
         }"
