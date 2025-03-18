@@ -24,10 +24,10 @@ const IndexPage = () => {
   const fetchCode = async () => {
     const code = `
       <iframe
-        src="https://publish.huelet.net/?embed=true&vuid=${
+        src="http://localhost:3000/?embed=true&vuid=${
           new URL(videoUrl).pathname.split(
             "/"
-          )[2]
+          )[new URL(videoUrl).pathname.split("/").length - 1]
         }"
         width="100%"
         height="100%"

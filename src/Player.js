@@ -15,14 +15,35 @@ const Player = () => {
 
   React.useEffect(() => {
     const getVideoData = async () => {
-      const resp = await fetch(`https://api.huelet.net/videos/lookup/${vuid}`);
-      const data = await resp.json();
-      data.data.url_webm
-        ? setVideoUrl(data.data.url_webm)
-        : setVideoUrl(data.data.url);
+      setVideoUrl('')
+      if (!vuid) {
+        console.error("vuid is not set");
+        return;
+      } else {
+
+        console.log("vuid is set:", vuid);
+      }
+      // try {
+      //   const resp = await fetch(`http://localhost:5002/v1/cdn/file/${vuid}`);
+      //   if (!resp.ok) {
+      //     throw new Error(`HTTP error! status: ${resp.status}`);
+      //   }
+      //   const data = await resp.json();
+      //   if (data.data) {
+      //     setVideoUrl(data.cdnURL);
+      //     console.log("Video data fetched:", data);
+      //   } else {
+      //     console.error("No video data found");
+      //   }
+      //   console.log(data)
+      // } catch (error) {
+      //   console.error("Failed to fetch video data:", error);
+      // }
+      // console.log("Video data fetched:", videoUrl);
     };
     getVideoData();
   }, [vuid]);
+
   return (
     <div>
       <VideoPlayer
@@ -31,8 +52,8 @@ const Player = () => {
         ).toString(36)}`}
         sources={
           videoUrl
-            ? { hd: { play_url: videoUrl } }
-            : { hd: { play_url: videoUrl } }
+            ? { hd: { play_url: "http://localhost:5005/v1/" + videoUrl } }
+            : { hd: { play_url: "http://localhost:5005/v1/static/" + vuid  } }
         }
       />
     </div>
