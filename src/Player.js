@@ -1,6 +1,6 @@
 import * as React from "react";
 import VideoPlayer from "griffith";
-
+import config from "./config.json";
 const Player = () => {
   const [vuid, setVuid] = React.useState("");
   const [videoUrl, setVideoUrl] = React.useState({});
@@ -52,8 +52,8 @@ const Player = () => {
         ).toString(36)}`}
         sources={
           videoUrl
-            ? { hd: { play_url: "http://localhost:5005/v1/" + videoUrl } }
-            : { hd: { play_url: "http://localhost:5005/v1/static/" + vuid  } }
+            ? { hd: { play_url: config.cdnServiceUrl[config.environment] + videoUrl } }
+            : { hd: { play_url: config.cdnServiceUrl[config.environment]+"/static/"+vuid } }
         }
       />
     </div>
