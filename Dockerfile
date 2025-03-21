@@ -24,5 +24,5 @@ RUN npm run build
 # Bundle app source
 
 WORKDIR /usr/src/app
-EXPOSE 5006
-CMD [ "serve", "-s", "build", "-l", "5006"]
+EXPOSE 5007
+CMD [ "serve", "-s", "build", "-l", "5007"]

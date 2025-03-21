@@ -21,7 +21,7 @@ npm run build
 
 serve -s build -l 5006```
 ```
-docker stop huelet_embedding && docker rm huelet_embedding && docker build -t huelet_embedding . && docker run --name huelet_embedding -p 5006:5006 huelet_embedding
+docker stop huelet_embedding && docker rm huelet_embedding && docker build -t huelet_embedding . && docker run --name huelet_embedding -p 5007:5007 huelet_embedding
 
-docker build -t novapro/huelet_embedding . && docker run --name huelet_embedding -p 5006:5006 novapro/huelet_embedding
+docker build -t novapro/huelet_embedding . && docker run --name huelet_embedding -p 5007:5007 novapro/huelet_embedding
 ```

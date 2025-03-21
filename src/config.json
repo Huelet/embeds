@@ -1,8 +1,8 @@
 {
     "environment" : "dev",
     "currentUrl" : {
-        "dev" : "http://localhost:5007",
-        "prod" : "https://interact-api.novapro.net/embed:5007"
+        "dev" : "http://localhost:5002/v1/video_embed",
+        "prod" : "https://interact-api.novapro.net/v1/video_embed"
     },
     "cdnServiceUrl" : {
         "dev" : "http://localhost:5002/v1/cdn",
