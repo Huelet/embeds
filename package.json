@@ -41,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "http://localhost:5002/v1/video_embed/"
 }

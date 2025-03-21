@@ -16,6 +16,7 @@ RUN npm install -legacy-peer-deps
 RUN npm install -g serve 
 
 COPY . .
+RUN node ./startup.js
 RUN npm run build
 
 # If you are building your code for production
