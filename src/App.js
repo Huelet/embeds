@@ -3,6 +3,7 @@ import * as React from "react";
 import { Button, Card } from "@huelet/foundation-ui";
 import Player from "./Player";
 import { Copy } from "@fdn-ui/icons-react";
+import config from "./config.json";
 
 const IndexPage = () => {
   const [embed, setEmbed] = React.useState(false);
@@ -24,10 +25,10 @@ const IndexPage = () => {
   const fetchCode = async () => {
     const code = `
       <iframe
-        src="https://publish.huelet.net/?embed=true&vuid=${
+        src="${config.currentUrl[config.environment]}/?embed=true&vuid=${
           new URL(videoUrl).pathname.split(
             "/"
-          )[2]
+          )[new URL(videoUrl).pathname.split("/").length - 1]
         }"
         width="100%"
         height="100%"

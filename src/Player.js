@@ -1,9 +1,13 @@
 import * as React from "react";
 import VideoPlayer from "griffith";
+import config from "./config.json";
 
 const Player = () => {
   const [vuid, setVuid] = React.useState("");
-  const [videoUrl, setVideoUrl] = React.useState({});
+  const [videoUrl, setVideoUrl] = React.useState(null); // Start as null
+  const [fetchedVideoUrl, setFetchedVideoUrl] = React.useState(null); // Store actual video URL
+  const [thumbnailUrl, setThumbnailUrl] = React.useState(null);
+
   React.useEffect(() => {
     const url = new URL(
       typeof window === "undefined"
@@ -15,26 +19,53 @@ const Player = () => {
 
   React.useEffect(() => {
     const getVideoData = async () => {
-      const resp = await fetch(`https://api.huelet.net/videos/lookup/${vuid}`);
-      const data = await resp.json();
-      data.data.url_webm
-        ? setVideoUrl(data.data.url_webm)
-        : setVideoUrl(data.data.url);
+      if (!vuid) {
+        console.error("vuid is not set");
+        return;
+      }
+      console.log("vuid is set:", vuid);
+
+      try {
+        const resp = await fetch(`${config.cdnServiceUrl[config.environment]}/file/${vuid}`);
+        if (!resp.ok) {
+          throw new Error(`HTTP error! status: ${resp.status}`);
+        }
+        const data = await resp.json();
+        console.log("Data fetched:", data);
+        setVideoUrl(config.cdnServiceUrl[config.environment] + data.cdnURL); // Set videoUrl immediately
+        setFetchedVideoUrl(config.cdnServiceUrl[config.environment] + data.cdnURL); // Store but don't set videoUrl immediately
+        setThumbnailUrl(config.cdnServiceUrl[config.environment] + data.thumbnailURL);
+      } catch (error) {
+        console.error("Failed to fetch video data:", error);
+      }
     };
+
     getVideoData();
   }, [vuid]);
+
   return (
     <div>
-      <VideoPlayer
-        id={`player-${Math.round(
-          Date.now() + Math.random() * Date.now()
-        ).toString(36)}`}
-        sources={
-          videoUrl
-            ? { hd: { play_url: videoUrl } }
-            : { hd: { play_url: videoUrl } }
-        }
-      />
+      {thumbnailUrl && !videoUrl ? (
+        <img
+          src={thumbnailUrl}
+          alt="Video Thumbnail"
+          width="320"
+          onClick={() => setVideoUrl(fetchedVideoUrl)} // Load video on click
+          style={{ cursor: "pointer", borderRadius: "10px" }}
+        />
+      ) : (
+        videoUrl && (
+          <VideoPlayer
+          id={`player-${Math.round(
+            Date.now() + Math.random() * Date.now()
+          ).toString(36)}`}
+          cover={thumbnailUrl}
+          sources={{
+            hd: { play_url: videoUrl }
+          }}
+        />
+        )
+      )}
     </div>
   );
 };
